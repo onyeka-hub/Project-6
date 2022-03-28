@@ -163,12 +163,14 @@ important)
 
 ![updated-fstab](https://user-images.githubusercontent.com/83009045/160481427-11237902-026c-4089-96f4-2f8bab515554.JPG)
 
+
 22. Test the configuration and reload the daemon
 
 ```
 	sudo mount -a
 
 	sudo systemctl daemon-reload
+```
 
 23. Verify your setup by running `df -h`
 
