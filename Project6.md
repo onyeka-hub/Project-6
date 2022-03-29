@@ -44,7 +44,7 @@
 
 4. Use `lsblk` command to inspect what block devices are attached to the server. Notice names of your newly created devices. All devices in Linux reside in /dev/ directory. Inspect it with ls /dev/ and make sure you see all 3 newly created block devices there – their names will likely be xvdf, xvdh, xvdg.
 
-![newly attached volumes](./Project-6/images/new-attached-vols)
+![new-attached-vols](https://user-images.githubusercontent.com/83009045/160480713-3e8cc073-fc8a-4f55-acdb-870bbd24bd34.JPG)
 
 5. Use `df -h` command to see all mounts and free space on your server
 
@@ -57,11 +57,11 @@
 
 7. Use `lsblk` utility to view the newly configured partition on each of the 3 disks
 
-![newly created partitions](./Project-6/images/new-partitions)
+![new-partitons](https://user-images.githubusercontent.com/83009045/160480840-c9353358-405c-4d43-a207-1266488ee54b.JPG)
 
 8. Install `lvm2` package using `sudo yum install lvm2`. Run `sudo lvmdiskscan` command to check for available partitions.
 
-![checking available partition](./Project-6/images/available-partition)
+![available-partition](https://user-images.githubusercontent.com/83009045/160480931-d5a00e68-3318-416b-9c28-aeef2cf455b7.JPG)
 
 9. Use `pvcreate` utility to mark each of 3 disks as physical volumes (PVs) to be used by LVM
 
@@ -74,17 +74,14 @@
 
 10. Verify that your Physical volume has been created successfully by running `sudo pvs`
 
-
-![creating physical volumes](./Project-6/images/physical-vols)
+![physical-vols](https://user-images.githubusercontent.com/83009045/160481066-8b985790-594c-493a-a2bc-b114bea2acb6.JPG)
 
 10. Use `vgcreate` utility to add all 3 PVs to a volume group (VG). Name the VG webdata-vg
 
 
 	`sudo vgcreate webdata-vg /dev/xvdh1 /dev/xvdg1 /dev/xvdf1`
-
-
-![creating volume group](./Project-6/images/vol-group)
-
+	
+![vol-group](https://user-images.githubusercontent.com/83009045/160481118-31c8314f-d1be-40d5-bd7e-8cbb13591191.JPG)
 
 11. Use `lvcreate` utility to create 2 logical volumes. apps-lv (Use half of the PV size), and logs-lv Use the remaining space of the PV size. NOTE: apps-lv will be used to store data for the Website while, logs-lv will be used to store data for logs.
 
@@ -97,9 +94,7 @@
 
 12. Verify that your Logical Volume has been created successfully by running `sudo lvs`
 
-
-![creating logical volume](./Project-6/images/logical-vol)
-
+![logical-vol](https://user-images.githubusercontent.com/83009045/160481199-007d1a8a-06ca-4fff-aa45-2058d153290d.JPG)
 
 13. Verify the entire setup
 
@@ -156,8 +151,7 @@ important)
 	sudo rsync -av /home/recovery/logs/. /var/log
 ```
 
-![mounting logical volume](./Project-6/images/mounted-vol)
-
+![mounted-vol](https://user-images.githubusercontent.com/83009045/160481292-4b8a6757-61e6-4b1e-ae65-7d5703ac7d97.JPG)
 
 21. Update /etc/fstab file so that the mount configuration will persist after restart of the server.
 
@@ -171,7 +165,8 @@ important)
 
 ### Update /etc/fstab in this format using your own UUID
 
-![updating the /etc/fstab file](./Project-6/images/updated-fstab)
+![updated-fstab](https://user-images.githubusercontent.com/83009045/160481427-11237902-026c-4089-96f4-2f8bab515554.JPG)
+
 
 22. Test the configuration and reload the daemon
 
@@ -179,10 +174,11 @@ important)
 	sudo mount -a
 
 	sudo systemctl daemon-reload
+```
 
 23. Verify your setup by running `df -h`
 
-![updating the /etc/fstab file](./Project-6/images/updated-fstab2)
+![updated-fstab2](https://user-images.githubusercontent.com/83009045/160481504-74bf16ea-440f-4d1c-94e6-f884b3cbdd16.JPG)
 
 ## Step 2 — Prepare the Database Server
 
@@ -283,7 +279,7 @@ important)
 
 ### Note that the host name here should be the private ip address of the database server, if both the webserver and database server are in the same local network.
 
-![wp-config.php file](./Project-6/images/wp-config.php)
+![wp-config php](https://user-images.githubusercontent.com/83009045/160481667-46675a84-49b3-4b11-8924-50e1ca838017.JPG)
 
 ### Note that at this point with the public ip address, the webserver will be serving the redhat page on the browser and will serve the wordpress page when you add /wordpress to public ip on the browser.
 
@@ -295,8 +291,7 @@ important)
 
 ### Change it from "/var/www/html" to "/var/www/html/wordpress"
 
-![/etc/httpd/conf/httpd.conf file](./Project-6/images/document-root)
-
+![document-root](https://user-images.githubusercontent.com/83009045/160481767-818ac519-6d18-4a66-8a83-0814eaf8b0ea.JPG)
 
 6. Configure SELinux Policies
 
@@ -324,8 +319,7 @@ important)
 	sudo systemctl enable mysqld
 ```
 
-![mysql up and running on db server](./Project-6/images/myqsl-status)
-
+![mysql-status](https://user-images.githubusercontent.com/83009045/160481848-687f4768-2b77-4769-a249-484a4c4b8ee2.JPG)
 
 ## Step 5 — Configure DB to work with WordPress
 
@@ -360,9 +354,7 @@ important)
 
 2. Verify if you can successfully execute `SHOW DATABASES;` command and see a list of existing databases.
 
-
-![conmnecting db-server from webserver](./Project-6/images/db-from-webserver)
-
+![db-from-webserver](https://user-images.githubusercontent.com/83009045/160481941-11cebbb3-68cd-4690-8b2a-18691ba0c118.JPG)
 
 3. Change permissions and configuration so Apache could use WordPress:
 
@@ -370,15 +362,14 @@ important)
 
 5. Try to access from your browser the link to your WordPress http://<Web-Server-Public-IP-Address>/wordpress/
 
-![from the browser](./Project-6/images/wordpress1)
+![wordpress1](https://user-images.githubusercontent.com/83009045/160482015-294c7b60-64c6-4d38-ba0f-1ec35e5e920d.JPG)
 
 6. Fill out your DB credentials:
 
-![wordpress credentials](./Project-6/images/wordpress2)
+![wordpress2](https://user-images.githubusercontent.com/83009045/160482101-a760692a-82fc-479f-b067-2d07043ba6f3.JPG)
 
 7. With this message – it means your WordPress has successfully connected to your remote MySQL database and you can starting working on wordpress.
 
-![wordpress main page](./Project-6/images/wordpress3)
-
+![wordpr![wordpress3](https://user-images.githubusercontent.com/83009045/160482265-c8d9baf2-dd53-422a-802f-7d86df9bfd40.JPG)
 
 ## End of project 6
