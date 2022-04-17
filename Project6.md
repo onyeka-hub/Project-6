@@ -242,7 +242,7 @@ important)
 
 	sudo wget http://wordpress.org/latest.tar.gz
  
-	sudo tar xzvf latest.tar.gz
+	sudo tar -xzvf latest.tar.gz
  
 	sudo rm -rf latest.tar.gz
  
