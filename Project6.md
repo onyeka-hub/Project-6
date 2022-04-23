@@ -285,7 +285,7 @@ important)
 
 ### But we want the webserver to serve the wordpress page with only the public ip on the browser.
 
-### To this, we have to edit the  apache http server configuration file **httpd.conf** located at **/etc/httpd/conf**. this contains the configuration directives that gives the server its instructions.
+### To this, we have to edit the  apache http server configuration file **httpd.conf** located at **/etc/httpd/conf** this contains the configuration directives that gives the server its instructions.
 
 ### This contains the document root which is the directory out of which you will server your documents. 
 
@@ -338,6 +338,13 @@ important)
 
 	exit
 ```
+To show the users in a database do
+
+'SELECT User, Host FROM mysql.user;'
+
+To remove a user do 
+
+'DROP USER 'username'@'host';'
 
 ## Step 6 — Configure WordPress to connect to remote database.
 
