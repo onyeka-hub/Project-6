@@ -261,33 +261,34 @@ Repeat the same steps as for the Web Server, but instead of apps-lv create db-lv
 	cp wordpress/wp-config-sample.php wordpress/wp-config.php
 ```
 
-### where `sudo wget http://wordpress.org/latest.tar.gz` downloads the file
+**where** 
+		`sudo wget http://wordpress.org/latest.tar.gz` downloads the file
 
-###		`sudo tar xzvf latest.tar.gz` uncompresses the file
+		`sudo tar -xzvf latest.tar.gz` uncompresses the file
 
-###		`sudo rm -rf latest.tar.gz` deletes the compressed file and its content
+		`sudo rm -rf latest.tar.gz` deletes the compressed file and its content
 
-###		`sudo cp -R wordpress/ /var/www/html/` will copy the directory wordpress recursively to /var/www/html directory. 
+		`sudo cp -R wordpress/ /var/www/html/` will copy the directory wordpress recursively to /var/www/html directory. 
 
-###		`sudo cp -r wordpress/wordpress/ ./wp` because wordpress dir is inside wordpress dir , you need to copy into another dir so that you can delete the double dir and copy it back to a single wordpress dir
+		`sudo cp -r wordpress/wordpress/ ./wp` because wordpress dir is inside wordpress dir , you need to copy into another dir so that you can delete the double dir and copy it back to a single wordpress dir
 
-###		`cp wordpress/wp-config-sample.php wordpress/wp-config.php` this is creating another file wp-config.php with contains the scipt which wordpress uses for installation. 
+		`cp wordpress/wp-config-sample.php wordpress/wp-config.php` this is creating another file wp-config.php with contains the scipt which wordpress uses for installation. 
 
-### This contains database setting where to put the values of the database user name, password, host name so that the webserver can be able to connect to the database server. 
+This contains database setting where to put the values of the database user name, password, host name so that the webserver can be able to connect to the database server. 
 
-### Note that the host name here should be the private ip address of the database server, if both the webserver and database server are in the same local network.
+**Note** that the host name here should be the private ip address of the database server, if both the webserver and database server are in the same local network.
 
 ![wp-config php](https://user-images.githubusercontent.com/83009045/160481667-46675a84-49b3-4b11-8924-50e1ca838017.JPG)
 
-### Note that at this point with the public ip address, the webserver will be serving the redhat page on the browser and will serve the wordpress page when you add /wordpress to public ip on the browser.
+**Note** that at this point with the public ip address, the webserver will be serving the redhat page on the browser and will serve the wordpress page when you add /wordpress to public ip on the browser.
 
-### But we want the webserver to serve the wordpress page with only the public ip on the browser.
+But we want the webserver to serve the wordpress page with only the public ip on the browser.
 
 To this, we have to edit the  apache http server configuration file **httpd.conf** located at **/etc/httpd/conf** this contains the configuration directives that gives the server its instructions.
 
-### This contains the document root which is the directory out of which you will server your documents. 
+This contains the document root which is the directory out of which you will server your documents. 
 
-### Change it from "/var/www/html" to "/var/www/html/wordpress"
+ Change it from **"/var/www/html"** to **"/var/www/html/wordpress"**
 
 ![document-root](https://user-images.githubusercontent.com/83009045/160481767-818ac519-6d18-4a66-8a83-0814eaf8b0ea.JPG)
 
@@ -309,7 +310,7 @@ To this, we have to edit the  apache http server configuration file **httpd.conf
 	sudo yum install mysql-server
 ```
 
-### Verify that the service is up and running by using `sudo systemctl status mysqld`, if it is not running, restart the service and enable it so it will be running even after reboot:
+Verify that the service is up and running by using `sudo systemctl status mysqld`, if it is not running, restart the service and enable it so it will be running even after reboot:
 
 ```
 	sudo systemctl restart mysqld
@@ -347,7 +348,7 @@ To remove a user do
 ## Step 6 — Configure WordPress to connect to remote database.
 
 
-### Hint: Do not forget to open MySQL port 3306 on DB Server EC2. For extra security, you shall allow access to the DB server ONLY from your Web Server’s IP address, so in the Inbound Rule configuration specify source as /32
+**Hint**: Do not forget to open MySQL port 3306 on DB Server EC2. For extra security, you shall allow access to the DB server ONLY from your Web Server’s IP address, so in the Inbound Rule configuration specify source as /32
 
 1. Install MySQL client and test that you can connect from your Web Server to your DB server by using mysql-client
 
