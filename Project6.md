@@ -38,7 +38,7 @@ Generally, web, or mobile solutions are implemented based on what is called the 
 
 3. Open up the Linux terminal to begin configuration
 
-4. Use `lsblk` command to inspect what block devices are attached to the server. Notice names of your newly created devices. All devices in Linux reside in /dev/ directory. Inspect it with ls /dev/ and make sure you see all 3 newly created block devices there – their names will likely be xvdf, xvdh, xvdg.
+4. Use `lsblk` command to inspect what block devices are attached to the server. Notice names of your newly created devices. All devices in Linux reside in /dev/ directory. Inspect it with ls /dev/ and make sure you see all 3 newly created block devices there – their names will likely be nvme1n1, nvme2n1, nvme3n1.
 
 ![new-attached-vols](https://user-images.githubusercontent.com/83009045/160480713-3e8cc073-fc8a-4f55-acdb-870bbd24bd34.JPG)
 
@@ -47,7 +47,7 @@ Generally, web, or mobile solutions are implemented based on what is called the 
 6. Use `gdisk` utility to create a single partition on each of the 3 disks
 
 ```
-	sudo gdisk /dev/xvdf
+	sudo gdisk /dev/nvme1n1
 ```
 
 
