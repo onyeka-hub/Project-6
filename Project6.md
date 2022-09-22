@@ -62,9 +62,9 @@ Generally, web, or mobile solutions are implemented based on what is called the 
 9. Use `pvcreate` utility to mark each of 3 disks as physical volumes (PVs) to be used by LVM
 
 ```
-	sudo pvcreate /dev/xvdf1
-	sudo pvcreate /dev/xvdg1
-	sudo pvcreate /dev/xvdh1
+	sudo pvcreate /dev/nvme1n1p1
+	sudo pvcreate /dev/nvme2n1p1
+	sudo pvcreate /dev/nvme3n1p1
 ```
 
 
@@ -75,7 +75,7 @@ Generally, web, or mobile solutions are implemented based on what is called the 
 10. Use `vgcreate` utility to add all 3 PVs to a volume group (VG). Name the VG webdata-vg
 
 
-	`sudo vgcreate webdata-vg /dev/xvdh1 /dev/xvdg1 /dev/xvdf1`
+	`sudo vgcreate webdata-vg /dev/nvme1n1p1 /dev/nvme2n1p1 /dev/nvme3n1p1`
 	
 ![vol-group](https://user-images.githubusercontent.com/83009045/160481118-31c8314f-d1be-40d5-bd7e-8cbb13591191.JPG)
 
