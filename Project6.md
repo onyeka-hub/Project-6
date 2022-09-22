@@ -368,7 +368,7 @@ To remove a user do
 
 4. Enable TCP port 80 in Inbound Rules configuration for your Web Server EC2 (enable from everywhere 0.0.0.0/0 or from your workstation’s IP)
 
-5. Try to access from your browser the link to your WordPress `http://<Web-Server-Public-IP-Address>/wordpress/`
+5. Try to access from your browser the link to your WordPress `http://<Web-Server-Public-IP-Address>/wordpress/` or `http://<Web-Server-Public-IP-Address>`
 
 ![wordpress1](https://user-images.githubusercontent.com/83009045/160482015-294c7b60-64c6-4d38-ba0f-1ec35e5e920d.JPG)
 
