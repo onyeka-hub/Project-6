@@ -271,9 +271,11 @@ Repeat the same steps as for the Web Server, but instead of apps-lv create db-lv
 
 		`sudo cp -R wordpress/ /var/www/html/` will copy the directory wordpress recursively to /var/www/html directory. 
 
-		`sudo cp -r wordpress/wordpress/ ./wp` because wordpress dir is inside wordpress dir , you need to copy into another dir so that you can delete the double dir and copy it back to a single wordpress dir
+		`sudo cp -r wordpress/wordpress/ ./wp` because wordpress dir is inside wordpress dir ,
+		you need to copy into another dir so that you can delete the double dir and copy it back to a single wordpress dir
 
-		`cp wordpress/wp-config-sample.php wordpress/wp-config.php` this is creating another file wp-config.php with contains the scipt which wordpress uses for installation. 
+		`cp wordpress/wp-config-sample.php wordpress/wp-config.php` this is creating another file wp-config.php with 
+		contains the scipt which wordpress uses for installation. 
 
 This contains database setting where to put the values of the database user name, password, host name so that the webserver can be able to connect to the database server. 
 
