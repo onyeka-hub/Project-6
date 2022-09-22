@@ -274,7 +274,7 @@ Repeat the same steps as for the Web Server, but instead of apps-lv create db-lv
 		`sudo cp -r wordpress/wordpress/ ./wp` because wordpress dir is inside wordpress dir ,
 		you need to copy into another dir so that you can delete the double dir and copy it back to a single wordpress dir
 
-		`cp wordpress/wp-config-sample.php wordpress/wp-config.php` this is creating another file wp-config.php with 
+		`cp wordpress/wp-config-sample.php wordpress/wp-config.php` this is creating another file wp-config.php which 
 		contains the scipt which wordpress uses for installation.This contains database setting where to put the values 
 		of the database user name, password, host name so that the webserver can be able to connect to the database server. 
 
@@ -286,7 +286,7 @@ Repeat the same steps as for the Web Server, but instead of apps-lv create db-lv
 
 But we want the webserver to serve the wordpress page with only the public ip on the browser.
 
-To this, we have to edit the  apache http server configuration file **httpd.conf** located at **/etc/httpd/conf** this contains the configuration directives that gives the server its instructions.
+To this, we have to edit the  apache http server configuration file **httpd.conf** located at **/etc/httpd/conf**. This contains the configuration directives that gives the server its instructions.
 
 This contains the document root which is the directory out of which you will server your documents. 
 
