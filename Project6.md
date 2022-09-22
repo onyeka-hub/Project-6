@@ -262,6 +262,7 @@ Repeat the same steps as for the Web Server, but instead of apps-lv create db-lv
 ```
 
 **where** 
+
 		`sudo wget http://wordpress.org/latest.tar.gz` downloads the file
 
 		`sudo tar -xzvf latest.tar.gz` uncompresses the file
