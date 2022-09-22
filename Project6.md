@@ -55,7 +55,9 @@ Generally, web, or mobile solutions are implemented based on what is called the 
 
 ![new-partitons](https://user-images.githubusercontent.com/83009045/160480840-c9353358-405c-4d43-a207-1266488ee54b.JPG)
 
-8. Install `lvm2` package using `sudo yum install lvm2`. Run `sudo lvmdiskscan` command to check for available partitions.
+8. Install `lvm2` package using `sudo yum install lvm2`. 
+9. 
+10. Run `sudo lvmdiskscan` command to check for available partitions.
 
 ![available-partition](https://user-images.githubusercontent.com/83009045/160480931-d5a00e68-3318-416b-9c28-aeef2cf455b7.JPG)
 
