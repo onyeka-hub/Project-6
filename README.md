@@ -336,10 +336,10 @@ To remove a user do
 
 6. Fill out your DB credentials:
 
+![wp-config php](https://user-images.githubusercontent.com/83009045/160481667-46675a84-49b3-4b11-8924-50e1ca838017.JPG)
+
 ![wordpress2](https://user-images.githubusercontent.com/83009045/160482101-a760692a-82fc-479f-b067-2d07043ba6f3.JPG)
 
-
-![wp-config php](https://user-images.githubusercontent.com/83009045/160481667-46675a84-49b3-4b11-8924-50e1ca838017.JPG)
 
 **Note** that at this point with the public ip address, the webserver will be serving the redhat page on the browser and will serve the wordpress page when you add /wordpress to public ip on the browser.
 
