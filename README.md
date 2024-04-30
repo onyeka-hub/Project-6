@@ -32,7 +32,7 @@ Generally, web, or mobile solutions are implemented based on what is called the 
 
 ## Step 1 — Prepare a Web Server
 
-1. Launch an EC2 instance that will serve as "Web Server". Create 3 volumes in the same AZ as your Web Server EC2, each of 10 GiB. 
+1. Launch an EC2 instance that will serve as "Web Server". Create 3 volumes in the same AZ as your Web Server EC2, each of 10 GiB. (RHEL-8.6.0_HVM-20220503-x86_64-2-Hourly2-GP2)
 
 2. Attach all three volumes one by one to your Web Server EC2 instance
 
